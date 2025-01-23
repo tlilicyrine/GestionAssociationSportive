@@ -1,0 +1,40 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
+    <!-- Configuration des Servlets -->
+    <servlet>
+        <servlet-name>AdherentServlet</servlet-name>
+        <servlet-class>com.association.servlet.AdherentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdherentServlet</servlet-name>
+        <url-pattern>/adherents/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GroupeServlet</servlet-name>
+        <servlet-class>com.association.servlet.GroupeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GroupeServlet</servlet-name>
+        <url-pattern>/groupes/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Configuration des Web Services REST -->
+    <servlet>
+        <servlet-name>Jersey REST Service</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.association.webservice</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey REST Service</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Configuration des paramètres généraux -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
